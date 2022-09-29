@@ -37,8 +37,8 @@ async def main():
                 for reaction in reactions:
                     if reaction not in [None, 'a', 'b', 'o', 'i', 'u', 'thx', 'm', 'v', 'x', 't']:
                         await client.web_client.reactions_add(
+                            name=reaction,
                             channel=channel, 
-                            name=reaction, 
                             timestamp=timestamp, 
                             as_user=True
                         )
@@ -49,13 +49,15 @@ async def main():
         if req.type == "events_api":
             response = SocketModeResponse(envelope_id = req.envelope_id)
             await client.send_socket_mode_response(response)
+            event = req.payload['event']
 
-            if req.payload['event']['type'] == "reaction_added":
-                print("+" + req.payload['event']['reaction'] + " in #" + emoji_parser.get_channel_name(req.payload['event']['item']['channel']) + "\n")
+            if event['type'] == "reaction_added":
+                print("+" + event['reaction'] + " in #" + emoji_parser.get_channel_name(event['item']['channel']) + "\n")
                 await client.web_client.reactions_add(
-                    name=req.payload['event']['reaction'],
-                    channel=req.payload['event']['item']['channel'],
-                    timestamp=req.payload['event']['ts'],
+                    name=event['reaction'],
+                    channel=event['item']['channel'],
+                    timestamp=event['item']['ts'],
+                    as_user=True
                 )
 
     client.socket_mode_request_listeners.append(messageListener)
