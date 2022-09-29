@@ -1,5 +1,8 @@
 # ReactBot V2
-- Automated slack tool which adds user reactions to messages.
+- Slack bot which with following features:
+    - Automatic +1-ing of reactions to any message.
+    - Message parsing to find applicable reactions based on a custom emoji list.
+    - Custom dictionary where users can define specific keyword-reaction pairs.
 
 # Get Started
 - You'll need to create a Slack app with the following configuration:
@@ -36,4 +39,3 @@
 pip3 install slack_sdk
 python3 bot.py
 ```
-
