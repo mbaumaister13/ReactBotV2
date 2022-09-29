@@ -32,7 +32,7 @@ class EmojiParser:
                 return channel['name']
 
     # Get the user's name by ID.
-    def get_user(self, user_id):
+    def get_username(self, user_id):
         for users in self.users:
             if(user_id == users['id']):
                 return users['name']
@@ -41,7 +41,7 @@ class EmojiParser:
     # Extract metadata from message.
     def get_metadata(self, message): 
         try:
-            return message['text'], message['channel'], self.get_channel_name(message['channel']), message['user'], self.get_user(message['user']), message['ts']
+            return message['text'], message['channel'], self.get_channel_name(message['channel']), self.get_username(message['user']), message['ts']
         except Exception as ex:
             print("Failed to get metadata.", ex)
             return None, None, None, None, None, None
@@ -51,7 +51,7 @@ class EmojiParser:
         for char in string.punctuation:
             if char not in ['_', ':', '(', ')', '&', ';', '-']:
                 formatted_message = message.replace(char, ' ')
-        print(message)
+        print("\"%s\""% message)
         return formatted_message.lower()
 
     # Populates reaction list by searching for matching keywords.
@@ -93,10 +93,10 @@ class EmojiParser:
 
     # Parse message.
     def parse_message(self, message): 
-        text, channel, channel_name, user, username, timestamp = self.get_metadata(message)
-        if text and channel and timestamp and user:
+        text, channel, channel_name, username, timestamp = self.get_metadata(message)
+        if text and channel and timestamp and username:
             text = self.format_message(text)
             reactions = self.search_message_for_reactions(text.split())
-            return reactions, channel, channel_name, user, username, timestamp
+            return reactions, channel, channel_name, username, timestamp
         else:
             return None, None, None, None, None, None

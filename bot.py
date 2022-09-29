@@ -30,10 +30,11 @@ async def main():
             event = req.payload['event']
 
             if event['type'] == "message" and event['channel_type'] == "channel":
-                reactions, channel, channel_name, user, username, timestamp = emoji_parser.parse_message(event)
+                reactions, channel, channel_name, username, timestamp = emoji_parser.parse_message(event)
 
-                print(username, "#" + channel_name, [reaction for reaction in reactions if reaction not in [None, 'a', 'b', 'o', 'i', 'u', 'thx', 'm', 'v', 'x', 't']])
+                print(username, "in #" + channel_name + ",", "found reactions:", [reaction for reaction in reactions if reaction not in [None, 'a', 'b', 'o', 'i', 'u', 'thx', 'm', 'v', 'x', 't']])
                 print("")
+
                 for reaction in reactions:
                     if reaction not in [None, 'a', 'b', 'o', 'i', 'u', 'thx', 'm', 'v', 'x', 't']:
                         await client.web_client.reactions_add(
