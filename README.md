@@ -29,11 +29,11 @@
 
 
 # Adding Custom Emoji Keywords
-- Follow the format in emoji_dict.txt (outer key is the emoji name, inner list are the keywords to match).
+- Follow the format in emoji_dict.json (key is the emoji name, value list contains the keywords to match).
 
 # Commands to Install/Run
 ```
 pip3 install slack_sdk
-python bot.py
+python3 bot.py
 ```
 

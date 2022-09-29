@@ -62,10 +62,7 @@ class EmojiParser:
                 reactions.add(query[1:-1])
 
             # Adjust this value between 0-1 to change random chance of react.
-            if random.random() <= 0.15: 
-                if query.startswith('j'):
-                    reactions.add('j')
-                
+            if random.random() <= 0.15:
                 # Adjust decimal value to determine partial match strength.
                 matching_emojis = set(difflib.get_close_matches(query, self.emoji_keys, 100, 0.8)) 
 
@@ -80,7 +77,7 @@ class EmojiParser:
                             num += 1
 
                 for emoji in self.custom_emoji_dict:
-                    if query in self.custom_emoji_dict[emoji]['list']:
+                    if query in self.custom_emoji_dict[emoji]:
                         reactions.add(emoji)
             return reactions
         except Exception as ex:
