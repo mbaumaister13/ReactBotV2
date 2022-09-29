@@ -1,10 +1,10 @@
 # ReactBot V2
-- Automated slack tool which adds user reactions to messages .
+- Automated slack tool which adds user reactions to messages.
 
 # Get Started
 - You'll need to create a Slack app with the following configuration:
     - Create App-Level Token with `connections:write` scope.
-    - Enable Socket Mode
+    - Enable Socket Mode.
     - Event Subscriptions (on behalf of users):
         - `message.channels`
         - `reaction_added`
@@ -22,14 +22,14 @@
 - Create a `tokens.json` file with the following format:
     ```
     {
-        "app_token": "YOUR APP TOKEN",
-        "bot_token": "xoxp-526362008167-524703344609-4150523723972-178282c3a6547ceab2113f5bf3adf311"
+        "app_token": "YOUR APP-LEVEL TOKEN (xapp-)",
+        "bot_token": "YOUR OAUTH TOKEN (xoxp-)"
     }
     ```
 
 
 # Adding Custom Emoji Keywords
-- Follow the format in emoji_dict.txt (outer key is the emoji name, inner list are the keywords to match)
+- Follow the format in emoji_dict.txt (outer key is the emoji name, inner list are the keywords to match).
 
 # Commands to Install/Run
 ```
