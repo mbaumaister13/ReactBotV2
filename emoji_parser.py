@@ -71,10 +71,10 @@ class EmojiParser:
 
                 if len(matching_emojis) > 0:
                     matching_emoji_list = list(matching_emojis)
-                    # random_number = random.randint(1, 3 if len(matching_emote_list) > 3 else len(matching_emote_list))
+                    random_number = random.randint(1, 3 if len(matching_emoji_list) > 3 else len(matching_emoji_list))
                     num = 0 
-                    while num < 1:
-                        emote = matching_emoji_list[random.randint(0, len(matching_emoji_list)-1)]
+                    while num < random_number:
+                        emote = matching_emoji_list[random.randint(0, len(matching_emoji_list) - 1)]
                         if emote not in reactions:
                             reactions.add(emote)
                             num += 1
