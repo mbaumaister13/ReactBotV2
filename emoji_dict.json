@@ -1,0 +1,32 @@
+{
+	"ohkay" : {
+			"list" : ["ok", "okay"]
+	},
+	"np" : {
+			"list" : ["thx", "thanks", "thank", "ty"]
+	},
+	"peach" : {
+			"list" : ["ass", "butt", "peach", "booty"]
+	},
+	"eggplant" : {
+			"list" : ["cock", "dong", "dick", "penis", "schlong"]
+	},
+	"angryface" : {
+			"list" : ["angry", "&gt;:(", "d:&lt;", "):&lt;"]
+	},
+	"poop" : {
+			"list" : ["hankey", "poop", "turd", "shit", "crap", "feces", "dookie", "poopy", "poopie", "shid", "shidded"]
+	},
+	"xd" : {
+			"list" : ["hehe", "heehee"]
+	},
+	"corn1" : {
+			"list" : ["corn"]
+	},
+	"yeet" : {
+			"list" : ["ya"]
+	},
+	"sadness" : {
+			"list" : [":(", "):"]
+	}
+}
